@@ -1,0 +1,55 @@
+.map {
+    background: black;
+    opacity: 0.8;
+    background-position:center; 
+    width: 1500px;
+    height: 650px;
+    margin:auto;
+    margin-top:150px;
+}
+
+.background {
+  background: url("../img/background.png");
+  background-position:center; 
+  width:1500px;
+  height:1000px;
+  position:absolute;
+  margin:0;
+  z-index:-1;
+}
+.circle {
+    z-index: -1;
+    width:100px;
+    height: 100px;
+    background:red;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    text-align:center;
+    line-height:100px;
+    -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 1);
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 1);
+}
+
+.circle-hover {
+    z-index: -1;
+    width:100px;
+    height: 100px;
+    background:red;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    text-align:center;
+    line-height:100px;
+    -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 1);
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 1);
+    opacity:0.3;
+}
+
+.icon {
+    z-index:1000;
+    width:70px;
+    height: 70px;
+}
