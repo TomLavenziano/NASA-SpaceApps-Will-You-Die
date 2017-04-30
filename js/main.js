@@ -1,8 +1,9 @@
 (function($){
     var S = {
         config: {
-            div_no: 150,
-            sleep_time: 30
+            div_no: 100,
+            sleep_time: 30,
+            dot_size: 3
         },
         dimension: {
             width: 1500,
@@ -11,16 +12,15 @@
         fly_flag: false,
         path_i: 0,
         paths: [
-            [100,600],
-            [200,500],
-            [300,400],
-            [400,300],
-            [500,200],
-            [600,100],
-            [700,100],
-            [800,100],
-            [500,200],
-            [100,300]
+            [658.5049539096211,566.6236408783307],
+            [642.4192082801313,549.1104057765892],
+            [588.8752820889304,537.1815504263424],
+            [548.8388729143226,524.8350517876273],
+            [463.4595228878645,497.8926645344119],
+            [392.296261195136,483.90505096142203],
+            [227.4717506576389,427.59055693866367],
+            [188.39928379017033,434.0392006966176],
+            [166.74218415979493,433.30745634463335]
         ],
         color_codes: {
             1: '#02611b',
@@ -31,7 +31,7 @@
             6: '#ffdc01',
             7: '#ffab06',
             8: '#fa660d',
-            9: '#a8cb08',
+            9: '#e92914',
             10: '#e10119'
         },
         data: [],
@@ -138,15 +138,19 @@
                     city: 10,
                     eco: 10,
                     you: 10
+                },
+                {
+                    xy: [100, 300],
+                    latitude: -12,
+                    longitude: 100,
+                    city: 1,
+                    eco: 1,
+                    you: 1
                 }
             ];
         },
-        getData: function(x, y) {
-            for (var i = 0; i < S.data.length; i++) {
-                if (S.data[i].xy[0] == x && S.data[i].xy[1] == y) {
-                    return S.data[i];
-                }
-            }
+        getData: function() {
+            return S.data[S.path_i];
         },
         getPlaneXY: function() {
             var position = $('#plane').position();
@@ -159,8 +163,8 @@
         stopPlane: function() {
             S.fly_flag = false;
         },
-        changIconColor: function(x, y) {
-            var data = S.getData(x, y);
+        changIconColor: function() {
+            var data = S.getData();
             $('#city').css('background-color', S.color_codes[data.city]);
             $('#eco').css('background-color', S.color_codes[data.eco]);
             $('#you').css('background-color', S.color_codes[data.you]);
@@ -174,7 +178,7 @@
             var y = S.paths[S.path_i][1];
 
             S.movePlane(x,y);
-            S.changIconColor(x,y);
+            S.changIconColor();
         },
         movePlane: function(to_x, to_y) {
             // set from & to
@@ -204,8 +208,10 @@
 
             // next step
             function nextStep() {
+                var data = S.getData();
+                var avg = (data.city + data.eco + data.you) / 3;
                 S.gotoPlane(arr_path[i][0], arr_path[i][1]);
-
+                S.drawDot(arr_path[i][0], arr_path[i][1], S.color_codes[avg]);
                 if (i < arr_path.length - 1) {
                     // next step
                     i++;
@@ -219,6 +225,13 @@
                     }
                 }
             }
+        },
+        drawDot: function(x,y,color) {
+            var ctx = document.getElementById("canvas").getContext("2d");
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.arc(x, y, S.config.dot_size, 0, Math.PI * 2, true);
+            ctx.fill();
         }
     };
 
