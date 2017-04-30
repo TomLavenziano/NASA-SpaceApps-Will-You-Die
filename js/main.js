@@ -1,7 +1,7 @@
 (function($){
     var S = {
         config: {
-            div_no: 150,
+            div_no: 100,
             sleep_time: 30
         },
         dimension: {
@@ -11,16 +11,17 @@
         fly_flag: false,
         path_i: 0,
         paths: [
-            [100,600],
-            [200,500],
-            [300,400],
-            [400,300],
-            [500,200],
-            [600,100],
-            [700,100],
-            [800,100],
-            [500,200],
-            [100,300]
+            [1200,260],
+            [1086,275],
+            [969,293],
+            [851,297],
+            [744,291],
+            [648,297],
+            [549,306],
+            [450,330],
+            [355,343],
+            [242,340],
+            [103,342]
         ],
         color_codes: {
             1: '#02611b',
@@ -31,7 +32,7 @@
             6: '#ffdc01',
             7: '#ffab06',
             8: '#fa660d',
-            9: '#a8cb08',
+            9: '#e92914',
             10: '#e10119'
         },
         data: [],
@@ -138,11 +139,19 @@
                     city: 10,
                     eco: 10,
                     you: 10
+                },
+                {
+                    xy: [100, 300],
+                    latitude: -12,
+                    longitude: 100,
+                    city: 1,
+                    eco: 1,
+                    you: 1
                 }
             ];
         },
-        getData: function(i) {
-            return S.data[i];
+        getData: function() {
+            return S.data[S.path_i];
         },
         getPlaneXY: function() {
             var position = $('#plane').position();
@@ -155,8 +164,8 @@
         stopPlane: function() {
             S.fly_flag = false;
         },
-        changIconColor: function(i) {
-            var data = S.getData(i);
+        changIconColor: function() {
+            var data = S.getData();
             $('#city').css('background-color', S.color_codes[data.city]);
             $('#eco').css('background-color', S.color_codes[data.eco]);
             $('#you').css('background-color', S.color_codes[data.you]);
@@ -170,7 +179,7 @@
             var y = S.paths[S.path_i][1];
 
             S.movePlane(x,y);
-            S.changIconColor(S.path_i);
+            S.changIconColor();
         },
         movePlane: function(to_x, to_y) {
             // set from & to
@@ -201,7 +210,7 @@
             // next step
             function nextStep() {
                 S.gotoPlane(arr_path[i][0], arr_path[i][1]);
-
+                S.drawDot(arr_path[i][0], arr_path[i][1]);
                 if (i < arr_path.length - 1) {
                     // next step
                     i++;
@@ -215,6 +224,12 @@
                     }
                 }
             }
+        },
+        drawDot: function(x,y) {
+            /*$('#map').arc(250, 166, 100, 0, Math.PI*2);
+            context.lineWidth = 1; 
+            context.strokeStyle = 'black';
+            context.context.beginPath();*/
         }
     };
 
