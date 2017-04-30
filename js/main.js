@@ -141,12 +141,8 @@
                 }
             ];
         },
-        getData: function(x, y) {
-            for (var i = 0; i < S.data.length; i++) {
-                if (S.data[i].xy[0] == x && S.data[i].xy[1] == y) {
-                    return S.data[i];
-                }
-            }
+        getData: function(i) {
+            return S.data[i];
         },
         getPlaneXY: function() {
             var position = $('#plane').position();
@@ -159,8 +155,8 @@
         stopPlane: function() {
             S.fly_flag = false;
         },
-        changIconColor: function(x, y) {
-            var data = S.getData(x, y);
+        changIconColor: function(i) {
+            var data = S.getData(i);
             $('#city').css('background-color', S.color_codes[data.city]);
             $('#eco').css('background-color', S.color_codes[data.eco]);
             $('#you').css('background-color', S.color_codes[data.you]);
@@ -174,7 +170,7 @@
             var y = S.paths[S.path_i][1];
 
             S.movePlane(x,y);
-            S.changIconColor(x,y);
+            S.changIconColor(S.path_i);
         },
         movePlane: function(to_x, to_y) {
             // set from & to
