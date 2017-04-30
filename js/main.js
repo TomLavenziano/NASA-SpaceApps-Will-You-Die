@@ -2,7 +2,8 @@
     var S = {
         config: {
             div_no: 100,
-            sleep_time: 30
+            sleep_time: 30,
+            dot_size: 3
         },
         dimension: {
             width: 1500,
@@ -207,8 +208,10 @@
 
             // next step
             function nextStep() {
+                var data = S.getData();
+                var avg = (data.city + data.eco + data.you) / 3;
                 S.gotoPlane(arr_path[i][0], arr_path[i][1]);
-                S.drawDot(arr_path[i][0], arr_path[i][1]);
+                S.drawDot(arr_path[i][0], arr_path[i][1], S.color_codes[avg]);
                 if (i < arr_path.length - 1) {
                     // next step
                     i++;
@@ -223,11 +226,12 @@
                 }
             }
         },
-        drawDot: function(x,y) {
-            /*$('#map').arc(250, 166, 100, 0, Math.PI*2);
-            context.lineWidth = 1; 
-            context.strokeStyle = 'black';
-            context.context.beginPath();*/
+        drawDot: function(x,y,color) {
+            var ctx = document.getElementById("canvas").getContext("2d");
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.arc(x, y, S.config.dot_size, 0, Math.PI * 2, true);
+            ctx.fill();
         }
     };
 

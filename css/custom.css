@@ -60,6 +60,8 @@
   -ms-transform: rotate(-90deg); /* IE 9 */
   -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
   transform: rotate(-90deg);
+  margin-top: -25px;
+  margin-left: -25px;
 }
 
 
@@ -72,7 +74,6 @@
     padding-top:120px;
     padding-left:150px;
 }
-
 
 
 #flight-no {
