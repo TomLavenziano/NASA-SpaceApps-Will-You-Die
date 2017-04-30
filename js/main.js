@@ -606,15 +606,11 @@
             S.gotoPlane(x,y);
         },
         initData: function() {
-            $.ajax({
-                url: 'http://sung.nasaspaceappsnyc2017.com/data.json',
-                dataType: 'json',
-                success: function (response) {
-                    S.data = response;
-                    S.initMap();
-                    S.initPlane();
-                    S.startPlane();
-                }
+            $.get('data.json', function(data) {
+                S.data = data;
+                S.initMap();
+                S.initPlane();
+                S.startPlane();
             });
         },
         getData: function() {
