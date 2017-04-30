@@ -1,0 +1,96 @@
+.map {
+    background: none;
+    opacity: 1;
+    background-position:center; 
+    width: 1500px;
+    height: 650px;
+    margin:auto;
+    margin-top:250px;
+    position: relative;
+}
+
+.background {
+  background: url("../img/mapsdark2.png");
+  background-position:center; 
+  width:1500px;
+  height:1000px;
+  position:absolute;
+  margin:0;
+  z-index:-1;
+}
+
+.circle {
+    z-index: -1;
+    width:100px;
+    height: 100px;
+    background:red;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    text-align:center;
+    line-height:100px;
+    -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 1);
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 1);
+}
+
+.circle-hover {
+    z-index: -1;
+    width:100px;
+    height: 100px;
+    background:red;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    text-align:center;
+    line-height:100px;
+    -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 1);
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 1);
+    opacity:0.3;
+}
+
+.icon {
+    z-index:1000;
+    width:70px;
+    height: 70px;
+}
+
+#plane {
+  position: absolute;
+  -ms-transform: rotate(-90deg); /* IE 9 */
+  -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+  transform: rotate(-90deg);
+  margin-top: -25px;
+  margin-left: -25px;
+}
+
+
+.banner {
+    background: url("../img/nyc.jpg");
+    background-position: 100px;
+    padding: 20px;
+    height: 300px;
+    width: 100%;
+    padding-top:120px;
+    padding-left:150px;
+}
+
+
+#flight-no {
+    color:#888888;
+    border-radius:5px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+}
+
+#flight-no:hover {
+    color:teal;
+    background:#f0f0f0;
+    -webkit-box-shadow: 1px 1px 2px 0px #e0e0e0;
+    -moz-box-shadow: 1px 1px 2px 0px #e0e0e0;
+    box-shadow: 1px 1px 2px 0px #e0e0e0;
+}

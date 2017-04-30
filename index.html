@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Will You Die? | Route</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+
+    <script src="js/main.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+      <div class="background" style="margin-top:-200px">
+          <div id="map" class="map">
+            <canvas id="canvas" width="1500" height="650"></canvas>
+            <div id="plane"><img src="img/airplane.png" width="50px" height="50px"></div>
+          </div>
+          <div class="container" style="margin-top:-300px; margin-right: 120px">
+            <div class="row">
+                <div class="col-lg-1 col-lg-offset-11" style="text-align:right">
+                  <div id="city" class="circle" onMouseOver="this.className='circle-hover'" onMouseOut="this.className='circle'">
+                      <img src="img/cityscape.png" class="icon">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-1 col-lg-offset-11" style="text-align:right">
+                  <div id="eco" class="circle" onMouseOver="this.className='circle-hover'" onMouseOut="this.className='circle'">
+                      <img src="img/animal.png" class="icon">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-1 col-lg-offset-11" style="text-align:right">
+                  <div id="you" class="circle" onMouseOver="this.className='circle-hover'" onMouseOut="this.className='circle'">
+                      <img src="img/user.png" class="icon">
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
