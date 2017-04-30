@@ -512,7 +512,7 @@
             [140,343],
             [138,343]
         ],
-        color_codes: {
+        color_codes: { // 1: green - 10: red
             1: '#02611b',
             2: '#2c7c16',
             3: '#75ac0d',
@@ -611,7 +611,7 @@
             // next step
             function nextStep() {
                 var data = S.getData();
-                var avg = (data.city + data.eco + data.you) / 3;
+                var avg = Math.round((data.city + data.eco + data.you) / 3);
                 S.gotoPlane(arr_path[i][0], arr_path[i][1]);
                 S.drawDot(arr_path[i][0], arr_path[i][1], S.color_codes[avg]);
                 if (i < arr_path.length - 1) {
