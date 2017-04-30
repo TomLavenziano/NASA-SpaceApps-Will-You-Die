@@ -1,8 +1,9 @@
 (function($){
     var S = {
         config: {
-            div_no: 150,
-            sleep_time: 30
+            div_no: 100,
+            sleep_time: 30,
+            dot_size: 3
         },
         dimension: {
             width: 1500,
@@ -582,7 +583,7 @@
             6: '#ffdc01',
             7: '#ffab06',
             8: '#fa660d',
-            9: '#a8cb08',
+            9: '#e92914',
             10: '#e10119'
         },
         data: [],
@@ -5100,12 +5101,8 @@
                 }
             ];
         },
-        getData: function(x, y) {
-            for (var i = 0; i < S.data.length; i++) {
-                if (S.data[i].xy[0] == x && S.data[i].xy[1] == y) {
-                    return S.data[i];
-                }
-            }
+        getData: function() {
+            return S.data[S.path_i];
         },
         getPlaneXY: function() {
             var position = $('#plane').position();
@@ -5118,8 +5115,8 @@
         stopPlane: function() {
             S.fly_flag = false;
         },
-        changIconColor: function(x, y) {
-            var data = S.getData(x, y);
+        changIconColor: function() {
+            var data = S.getData();
             $('#city').css('background-color', S.color_codes[data.city]);
             $('#eco').css('background-color', S.color_codes[data.eco]);
             $('#you').css('background-color', S.color_codes[data.you]);
@@ -5133,7 +5130,7 @@
             var y = S.paths[S.path_i][1];
 
             S.movePlane(x,y);
-            S.changIconColor(x,y);
+            S.changIconColor();
         },
         movePlane: function(to_x, to_y) {
             // set from & to
@@ -5163,8 +5160,10 @@
 
             // next step
             function nextStep() {
+                var data = S.getData();
+                var avg = (data.city + data.eco + data.you) / 3;
                 S.gotoPlane(arr_path[i][0], arr_path[i][1]);
-
+                S.drawDot(arr_path[i][0], arr_path[i][1], S.color_codes[avg]);
                 if (i < arr_path.length - 1) {
                     // next step
                     i++;
@@ -5178,6 +5177,13 @@
                     }
                 }
             }
+        },
+        drawDot: function(x,y,color) {
+            var ctx = document.getElementById("canvas").getContext("2d");
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.arc(x, y, S.config.dot_size, 0, Math.PI * 2, true);
+            ctx.fill();
         }
     };
 

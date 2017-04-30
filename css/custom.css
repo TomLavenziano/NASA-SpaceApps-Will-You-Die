@@ -1,6 +1,6 @@
 .map {
     background: white;
-    opacity: 0.8;
+    opacity: 1;
     background-position:center; 
     width: 1500px;
     height: 650px;
@@ -61,6 +61,8 @@
   -ms-transform: rotate(-90deg); /* IE 9 */
   -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
   transform: rotate(-90deg);
+  margin-top: -25px;
+  margin-left: -25px;
 }
 
 
@@ -73,7 +75,6 @@
     padding-top:120px;
     padding-left:150px;
 }
-
 
 
 #flight-no {
