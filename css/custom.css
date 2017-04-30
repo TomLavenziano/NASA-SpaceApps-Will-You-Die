@@ -1,11 +1,11 @@
 .map {
-    background: white;
+    background: none;
     opacity: 1;
     background-position:center; 
     width: 1500px;
     height: 650px;
     margin:auto;
-    margin-top:220px;
+    margin-top:250px;
     position: relative;
 }
 
