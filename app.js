@@ -10,6 +10,8 @@ var index = require('./routes/index');
 var v1_0 = require('./routes/v1.0');
 
 var app = express();
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,8 +25,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+// app.use('/', index);
 // app.use('/users', users);
+app.use('/', v1_0);
 app.use('/v1.0', v1_0);
 
 // catch 404 and forward to error handler

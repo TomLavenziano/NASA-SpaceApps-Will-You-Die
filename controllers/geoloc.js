@@ -1,16 +1,23 @@
 const VIEWPORT_XY = [1500, 650];
 const MAP_LATLONG = [60.817, 21.496];
-const MAP_RATIO = [(MAP_LATLONG[0] / VIEWPORT_XY[0]), (MAP_LATLONG[1] / VIEWPORT_XY[1])];
+const MAP_RATIO_LAT = (MAP_LATLONG[0] / VIEWPORT_XY[0]);
+const MAP_RATIO_LONG = (MAP_LATLONG[1] / VIEWPORT_XY[1]);
 
 
-const convertToLL = ( x, y ) => {
-  console.log(MAP_RATIO);
+function convertXToLat(x) {
+  console.log(x * MAP_RATIO_LAT);
+  return (x * MAP_RATIO_LAT);
+}
+function convertYToLong(y) {
+  console.log(y * MAP_RATIO_LONG);
+  return (y * MAP_RATIO_LONG);
 }
 
-const convertToXY = ( lat, long ) => {
+const convertLToXY = ( lat, long ) => {
 
 }
 
 
-exports.convertToXY = convertToXY();
-exports.convertToLL = convertToLL();
+exports.convertXToLat = convertXToLat();
+exports.convertYToLong = convertYToLong();
+// exports.convertToXY = convertToXY();
